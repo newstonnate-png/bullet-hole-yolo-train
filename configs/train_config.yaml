@@ -29,6 +29,6 @@ run_name: rc-bullethole
 # FINETUNE_SOURCE:  one spec -> datasets/finetune/ ; leave empty for a baseline run.
 # A multi-class export is folded to the single 'bullet-hole' class automatically
 # (see POOL_DROP_CLASSES in fetch_dataset.py).
-# Example (the current public pool — see Template/rangeconnect-yolo-train.md):
-#   PRETRAIN_SOURCES=roboflow:shootingscoreai/bullet-hole-webcam/4,roboflow:project-bat-bullet-hole-detection/bullet-hole-object-detection/30,roboflow:shootingscoreai/new-bullet-hole/5,roboflow:jasons-workspace-og0qz/bullet-hole-detection-3wyec/24
+# Example (replace with the sets you choose — see templates/bullet-hole-yolo-train.md):
+#   PRETRAIN_SOURCES=roboflow:your-workspace/your-project/1,roboflow:your-workspace/your-project-2/1
 #   FINETUNE_SOURCE=roboflow:<your-ws>/<your-proj>/2

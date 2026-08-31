@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Two-phase YOLO training for the RangeConnect bullet-hole detector, + ONNX export.
+"""Two-phase YOLO training for a single-class bullet-hole detector, + ONNX export.
 
 Phase 1  fine-tune the base weights (MODEL) on datasets/pool/ — the pooled
          public "what a hole looks like" prior.
@@ -9,11 +9,11 @@ Phase 2  if data/finetune.yaml exists, continue from phase-1 best.pt on
          that is the "baseline now" path.
 
 Then export the final best.pt to ONNX (opset 12, static, simplified) for
-onnxruntime CPU inference in GunRangeApp3/scoring_app.py.
+onnxruntime CPU inference in a downstream scoring application.
 
-Defaults come from train_config.yaml; every key is overridable by the
+Defaults come from configs/train_config.yaml; every key is overridable by the
 upper-cased env var (MODEL, IMGSZ, EPOCHS, BATCH, PATIENCE, DEVICE, CACHE,
-RUN_NAME, FINETUNE_EPOCHS).
+RUN_NAME, FINETUNE_EPOCHS). See .env.example for the full variable list.
 """
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ import yaml
 from ultralytics import YOLO
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-CONFIG_PATH = REPO_ROOT / "train_config.yaml"
+CONFIG_PATH = REPO_ROOT / "configs" / "train_config.yaml"
 POOL_YAML = REPO_ROOT / "data" / "pool.yaml"
 FINETUNE_YAML = REPO_ROOT / "data" / "finetune.yaml"
 RUNS = REPO_ROOT / "runs"

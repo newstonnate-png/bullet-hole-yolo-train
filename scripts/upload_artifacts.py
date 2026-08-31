@@ -7,10 +7,13 @@ No-op with a clear message if HF_MODEL_REPO is unset (grab from JupyterLab
 instead).
 
 Env:
-  HF_MODEL_REPO   e.g. "newstonnate/rc-bullet-hole-yolo" (created private if absent)
+  HF_MODEL_REPO   e.g. "your-user/your-model-repo" (created private if absent)
   HF_TOKEN        write token
   MODEL           base model name, used only for the subfolder label
   RUN_STAMP       per-run stamp for the subfolder (set by provision.sh)
+
+See .env.example for placeholder values for every variable. Tokens are read
+from the environment; none are stored in this file.
 """
 from __future__ import annotations
 

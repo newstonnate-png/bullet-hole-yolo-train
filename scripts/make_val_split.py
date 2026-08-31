@@ -12,6 +12,8 @@ Usage:
 Env:
   VAL_FRACTION  fraction of train/ to move to valid/  (default 0.15)
   SPLIT_SEED    RNG seed                               (default 0)
+
+See .env.example for placeholder values for every variable.
 """
 from __future__ import annotations
 

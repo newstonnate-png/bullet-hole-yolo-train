@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Vast.ai on-start provisioning for the RangeConnect YOLO training template.
+# Vast.ai on-start provisioning for the bullet-hole YOLO training template.
 # Runs inside the official `ultralytics/ultralytics:latest` image (torch +
 # ultralytics preinstalled). Flow: deps -> fetch dataset -> train + export ONNX
 # -> upload artifacts -> keep JupyterLab up for inspection.

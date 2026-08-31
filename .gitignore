@@ -1,10 +1,17 @@
+# Local secrets. Copy .env.example to .env and keep real values there only.
+.env
+.env.*
+!.env.example
+*.env
+
+# Generated on the training instance; never checked in.
 datasets/
 runs/
-.env
-.env.local
 *.pt
 *.onnx
+
+# Python and editor leftovers.
 __pycache__/
-*.pyc
-.DS_Store
+*.py[cod]
 .venv/
+.DS_Store

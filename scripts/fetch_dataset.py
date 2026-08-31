@@ -29,6 +29,9 @@ Env:
                      surviving box is remapped to class 0.
   Legacy single-source fallback: DATASET_SOURCE (roboflow|hf), ROBOFLOW_WORKSPACE,
   ROBOFLOW_PROJECT, ROBOFLOW_VERSION, HF_DATASET_REPO.
+
+See .env.example for placeholder values for every variable. Credentials stay in
+the environment; none are stored in this file.
 """
 from __future__ import annotations
 
@@ -68,9 +71,14 @@ def legacy_pretrain_spec() -> str:
         if not repo:
             sys.exit("ERROR: DATASET_SOURCE=hf but HF_DATASET_REPO unset.")
         return f"hf:{repo}"
-    ws = os.environ.get("ROBOFLOW_WORKSPACE", "justines-workspace-ls3un")
-    proj = os.environ.get("ROBOFLOW_PROJECT", "justines-workspace-ls3un")
+    ws = os.environ.get("ROBOFLOW_WORKSPACE", "")
+    proj = os.environ.get("ROBOFLOW_PROJECT", "")
     ver = os.environ.get("ROBOFLOW_VERSION", "1")
+    if not ws or not proj:
+        sys.exit(
+            "ERROR: PRETRAIN_SOURCES is unset and the legacy fallback needs "
+            "ROBOFLOW_WORKSPACE and ROBOFLOW_PROJECT. See .env.example."
+        )
     return f"roboflow:{ws}/{proj}/{ver}"
 
 
